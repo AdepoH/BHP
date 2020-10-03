@@ -1,0 +1,142 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>ATBU Health Center</title>
+    <meta name="author" content="Adepo Abdul-Hafeez">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <link rel="manifest" href="site.webmanifest"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- CSS here -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/owl.carousel.min.css}">
+    <link rel="stylesheet" th:href="@{/css/magnific-popup.css}">
+    <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
+    <link rel="stylesheet" th:href="@{/css/themify-icons.css}">
+    <link rel="stylesheet" th:href="@{/css/nice-select.css}">
+    <link rel="stylesheet" th:href="@{/css/flaticon.css}">
+    <link rel="stylesheet" th:href="@{/css/gijgo.css}">
+    <link rel="stylesheet" th:href="@{/css/animate.css}">
+    <link rel="stylesheet" th:href="@{/css/slicknav.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <!-- <link rel="stylesheet" th:href="@{/css/responsive.css}"> -->
+</head>
+
+<body>
+
+<div class="col-xl-6 col-lg-7">
+    <div class="main-menu  d-none d-lg-block">
+        <nav>
+            <ul id="navigation">
+                <li><a class="active" th:href="@{/index}">home</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<div th:if="${param.error}">
+    <span th:text="${param.error}"></span>
+</div>
+ <form method="post" th:action="@{/users/register}">
+
+     <div class="card-body register-form">
+
+         <div class="form-group col-6">
+             <label>Last Name</label>
+             <input type="text" name="lastName" required/>
+         </div>
+         <div class="form-group col-6">
+             <label>First Name</label>
+             <input type="text" name="firstName" required/>
+         </div>
+         <div class="form-group col-6">
+             <label>Username</label>
+             <input type="text" name="userName" required/>
+         </div>
+         <div class="form-group col-6">
+             <label>Password</label>
+             <input type="password" name="password" required/>
+         </div>
+         <div class="form-group col-6">
+             <label>Confirm Password</label>
+             <input type="password" name="confirmPassword" required/>
+         </div>
+         <div>
+             <input type="submit" name="register" value="register"/>
+         </div>
+     </div>
+ </form>
+
+<!-- footer start -->
+<footer class="footer">
+    <div class="footer_top">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-4 col-md-6 col-lg-4">
+                    <div class="footer_widget">
+                        <div class="footer_logo">
+                            <a href="#">
+                                <img src="img/freeLogo.jpg" alt="">
+                            </a>
+                        </div>
+                        <p>
+                            Firmament morning sixth subdue darkness
+                            creeping gathered divide.
+                        </p>
+                        <div class="socail_links">
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        <i class="ti-facebook"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="ti-twitter-alt"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-instagram"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 col-lg-3">
+                    <div class="footer_widget">
+                        <h3 class="footer_title">
+                            Address
+                        </h3>
+                        <p>
+                            200, D-block, Bauchi <br>
+                            +2349030596462 <br>
+                            atbu@gmail.com
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copy-right_text">
+        <div class="container">
+            <div class="footer_border"></div>
+            <div class="row">
+                <div class="col-xl-12">
+                    <p class="copy_right text-center">
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | The Hospital
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- footer end  -->
+</body>
+</html>
