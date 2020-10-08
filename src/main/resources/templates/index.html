@@ -28,68 +28,67 @@
 </head>
 
 <body>
-
-<!-- header-start -->
-<header>
-    <div class="header-area ">
-        <div class="header-top_area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-6 col-md-6 ">
-                        <div class="social_media_links">
-                            <a th:href="@{/#}">
-                                <i class="fa fa-linkedin"></i>
-                            </a>
-                            <a th:href="@{/#}">
-                                <i class="fa fa-facebook"></i>
-                            </a>
-                            <a th:href="@{/#}">/
-                                <i class="fa fa-google-plus"></i>
-                            </a>
+    <!-- header-start -->
+    <header>
+        <div class="header-area ">
+            <div class="header-top_area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-6 col-md-6 ">
+                            <div class="social_media_links">
+                                <a th:href="@{/#}">
+                                    <i class="fa fa-linkedin"></i>
+                                </a>
+                                <a th:href="@{/#}">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                                <a th:href="@{/#}">/
+                                    <i class="fa fa-google-plus"></i>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-xl-6 col-md-6">
-                        <div class="short_contact_list">
-                            <button><a th:href="@{/logout}" class="text-primary">Logout</a></button>
+                        <div class="col-xl-6 col-md-6">
+                            <div class="short_contact_list">
+                                <button><a th:href="@{/logout}" class="text-primary">Logout</a></button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div id="sticky-header" class="main-header-area">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-xl-3 col-lg-2">
-                        <div class="logo">
-                            <a th:href="@{/index}">
-                                <img th:src="@{/img/freeLogo.jpg}" alt="">
-                            </a>
+            <div id="sticky-header" class="main-header-area">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-xl-3 col-lg-2">
+                            <div class="logo">
+                                <a th:href="@{/index}">
+                                    <img th:src="@{/img/freeLogo.jpg}" alt="">
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-xl-6 col-lg-7">
-                        <div class="main-menu  d-none d-lg-block" sec:authorize="isAuthenticated()">
-                            <nav>
-                                <ul id="navigation">
-                                    <div sec:authorize="hasRole('ADMIN')">
+                        <div class="col-xl-6 col-lg-7">
+                            <div class="main-menu  d-none d-lg-block" sec:authorize="isAuthenticated()">
+                                <nav>
+                                    <ul id="navigation">
+                                        <div sec:authorize="hasRole('ADMIN')">
 
-                                        <li><a class="active" th:href="@{/index}">home</a></li>
-                                        <li><a th:href="@{/#}">Roles <i class="ti-angle-down"></i></a>
-                                            <ul class="submenu">
-                                                <li><a th:href="@{/roles/create}">Create New Role</a></li>
-                                                <li><a th:href="@{/roles/list}">List Existing Roles</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a th:href="@{/#}">Users <i class="ti-angle-down"></i></a>
-                                            <ul class="submenu">
-                                                <li><a th:href="@{/users/create}">Create New User</a></li>
-                                                <li><a th:href="@{/users/list}">List Of Users</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a class="active" th:href="@{/reception}">Receptionist</a></li>
-                                        <li><a class="active" th:href="@{/doctor}">Doctor</a></li>
-                                    </div>
+                                            <li><a class="active" th:href="@{/index}">home</a></li>
+                                            <li><a th:href="@{/#}">Roles <i class="ti-angle-down"></i></a>
+                                                <ul class="submenu">
+                                                    <li><a th:href="@{/roles/create}">Create New Role</a></li>
+                                                    <li><a th:href="@{/roles/list}">List Existing Roles</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a th:href="@{/#}">Users <i class="ti-angle-down"></i></a>
+                                                <ul class="submenu">
+                                                    <li><a th:href="@{/users/create}">Create New User</a></li>
+                                                    <li><a th:href="@{/users/list}">List Of Users</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a class="active" th:href="@{/reception}">Receptionist</a></li>
+                                            <li><a class="active" th:href="@{/doctor}">Doctor</a></li>
+                                        </div>
 
-                                    <div sec:authorize="hasRole('RECEPTIONIST')">
+                                        <div sec:authorize="hasRole('RECEPTIONIST')">
                                             <li><a class="active" th:href="@{/reception}">Receptionist</a></li>
                                             <li><a th:href="@{/#}">Patients <i class="ti-angle-down"></i></a>
                                                 <ul class="submenu">
@@ -97,75 +96,75 @@
                                                     <li><a th:href="@{/patients/list}">List Existing Roles</a></li>
                                                 </ul>
                                             </li>
-                                    </div>
+                                        </div>
 
-                                    <div sec:authorize="hasRole('DOCTOR')">
-                                        <li><a class="active" th:href="@{/doctor}">Doctor</a></li>
-                                        <li><a th:href="@{/#}">Patients<i class="ti-angle-down"></i></a>
-                                            <ul class="submenu">
-                                                <li><a th:href="@{/patients/list}">List Of Patients</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a th:href="@{/#}">Records<i class="ti-angle-down"></i></a>
-                                            <ul class="submenu">
-                                                <li><a th:href="@{/records/list}">List Of Existing Records</a></li>
-                                            </ul>
-                                        </li>
-                                    </div>
-                                </ul>
-                            </nav>
+                                        <div sec:authorize="hasRole('DOCTOR')">
+                                            <li><a class="active" th:href="@{/doctor}">Doctor</a></li>
+                                            <li><a th:href="@{/#}">Patients<i class="ti-angle-down"></i></a>
+                                                <ul class="submenu">
+                                                    <li><a th:href="@{/patients/list}">List Of Patients</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a th:href="@{/#}">Records<i class="ti-angle-down"></i></a>
+                                                <ul class="submenu">
+                                                    <li><a th:href="@{/records/list}">List Of Existing Records</a></li>
+                                                </ul>
+                                            </li>
+                                        </div>
+                                    </ul>
+                                </nav>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="mobile_menu d-block d-lg-none"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-<!-- header-end -->
-
-<!-- slider_area_start -->
-<div class="slider_area">
-    <div class="slider_active owl-carousel">
-        <div class="single_slider  d-flex align-items-center slider_bg_2">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="slider_text ">
-                            <h3> <span>ATBU Health Center</span></h3>
-                            <br>
-                            <br>
-                            <br>
-                            <p>In healthcare sector, service excellence is what all <br> hospitals should be
-                                able to provide irrespective of the Condition.</p>
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-<!-- slider_area_end -->
+    </header>
+    <!-- header-end -->
 
-<!-- welcome_docmed_area_start -->
-<div class="welcome_docmed_area">
-    <div class="container">
-        <div class="row">
-            <div class="col-xl-6 col-lg-6">
-                <div class="welcome_docmed_info">
-                    <h2>ATBU Hospital</h2>
-                    <h3>Best Care For Your <br>
-                        Good Health</h3>
-                    <p>Esteem spirit temper too say adieus who direct esteem.
-                        It esteems luckily or picture placing drawing. Apartments frequently or motionless on reasonable projecting expression.
-                    </p>
+    <!-- slider_area_start -->
+    <div class="slider_area">
+        <div class="slider_active owl-carousel">
+            <div class="single_slider  d-flex align-items-center slider_bg_2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="slider_text ">
+                                <h3> <span>ATBU Health Center</span></h3>
+                                <br>
+                                <br>
+                                <br>
+                                <p>In healthcare sector, service excellence is what all <br> hospitals should be
+                                    able to provide irrespective of the Condition.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+    <!-- slider_area_end -->
+
+    <!-- welcome_docmed_area_start -->
+    <div class="welcome_docmed_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-6 col-lg-6">
+                    <div class="welcome_docmed_info">
+                        <h2>ATBU Hospital</h2>
+                        <h3>Best Care For Your <br>
+                            Good Health</h3>
+                        <p>Esteem spirit temper too say adieus who direct esteem.
+                            It esteems luckily or picture placing drawing. Apartments frequently or motionless on reasonable projecting expression.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Emergency_contact start -->
     <div class="Emergency_contact">
