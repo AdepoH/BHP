@@ -65,15 +65,11 @@
                     </div>
                     <div class="col-xl-6 col-lg-7">
                         <div class="main-menu  d-none d-lg-block">
-                            <nav id="sidebarMenu" class="admin-nav col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                            <nav>
                                 <ul id="navigation">
-                                    <li><a class="active" th:href="@{/reception}">Receptionist</a></li>
-                                    <li><a th:href="@{/#}">Patients <i class="ti-angle-down"></i></a>
-                                        <ul class="submenu">
-                                            <li><a th:href="@{/patients/create}">Create New Patient File</a></li>
-                                            <li><a th:href="@{/patients/list}">List Existing Patients</a></li>
-                                        </ul>
-                                    </li>
+                                    <li><a class="active" th:href="@{/reception}">Reception</a></li>
+                                    <li><a th:href="@{/patients/create}">create new File</a></li>
+                                    <li><a th:href="@{/patients/list}">List Of Patient</a></li>
                                 </ul>
                             </nav>
                         </div>
