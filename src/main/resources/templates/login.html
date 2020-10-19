@@ -1,134 +1,62 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="https://www.thymeleaf.org/thymleaf-extras-springsecurity5">
+      xmlns:sec="https://www.thymeleaf.org/thymleaf-extras-springsecurity5">>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>ATBU Health Center</title>
+    <title>ATBU login</title>
     <meta name="author" content="Adepo Abdul-Hafeez">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- <link rel="manifest" href="site.webmanifest"> -->
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
-    <!-- Place favicon.ico in the root directory -->
-
-    <!-- CSS here -->
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
-    <link rel="stylesheet" th:href="@{/css/owl.carousel.min.css}">
-    <link rel="stylesheet" th:href="@{/css/magnific-popup.css}">
     <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
-    <link rel="stylesheet" th:href="@{/css/themify-icons.css}">
+    <link rel="stylesheet" th:href="@{/css/icon-font.min.css}">
     <link rel="stylesheet" th:href="@{/css/nice-select.css}">
     <link rel="stylesheet" th:href="@{/css/flaticon.css}">
-    <link rel="stylesheet" th:href="@{/css/gijgo.css}">
     <link rel="stylesheet" th:href="@{/css/animate.css}">
-    <link rel="stylesheet" th:href="@{/css/slicknav.css}">
-    <link rel="stylesheet" th:href="@{/css/style.css}">
-    <!-- <link rel="stylesheet" th:href="@{/css/responsive.css}"> -->
+    <link rel="stylesheet" th:href="@{/css/animsition.min.css}">
+    <link rel="stylesheet" th:href="@{/css/hamburgers.min.css}">
+    <link rel="stylesheet" th:href="@{/css/animsition.min.css}">
+    <link rel="stylesheet" th:href="@{/css/select2.min.css}">
+    <link rel="stylesheet" th:href="@{/css/daterangepicker.css}">
+    <link rel="stylesheet" th:href="@{/css/util.css}">
+    <link rel="stylesheet" th:href="@{/css/main.css}">
 </head>
 
-<body>
+<body style="background-color: #666666;">
 
-<!-- header-start -->
-<header>
-    <div class="header-area ">
-        <div class="header-top_area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-6 col-md-6 ">
-                        <div class="social_media_links">
-                            <a th:href="@{/#}">
-                                <i class="fa fa-linkedin"></i>
-                            </a>
-                            <a th:href="@{/#}">
-                                <i class="fa fa-facebook"></i>
-                            </a>
-                            <a th:href="@{/#}">/
-                                <i class="fa fa-google-plus"></i>
-                            </a>
-                        </div>
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100">
+            <form class="login100-form validate-form" name="f" th:action="@{/login}" method="post">
+					<span class="login100-form-title p-b-43">
+						LOGIN
+					</span>
+
+                <div class="card-body">
+                    <div th:if="${param.error}" class="alert alert-error">
+                        Invalid username and password.
+                    </div>
+                    <div th:if="${param.logout}" class="alert alert-success">
+                        You have been logged out.
+                    </div>
+                    <div class="form-group">
+                        <label for="username" class="form-check-label">Username</label>
+                        <input type="text" id="username" name="username" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="form-check-label">Password</label>
+                        <input type="password" id="password" name="password" class="form-control"/>
+                    </div>
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-success">Log in</button>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div id="sticky-header" class="main-header-area">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-xl-3 col-lg-2">
-                        <div class="logo">
-                            <a th:href="@{/index}">
-                                <img th:src="@{/img/freeLogo.jpg}" alt="">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 col-lg-7">
-                        <div class="main-menu  d-none d-lg-block">
-                            <nav>
-                                <ul id="navigation">
-                                    <li><a class="active" th:href="@{/index}">home</a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="mobile_menu d-block d-lg-none"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-<!-- header-end -->
 
-<!-- service_area_start -->
-<div class="service_area">
-    <div class="container p-0">
-        <div class="row no-gutters">
-            <div class="col-xl-4 col-md-4">
-                <div class="single_service">
-                    <div class="icon">
-                        <i class="flaticon-emergency-call"></i>
-                    </div>
-                    <h3>Welcome To ATBU Health Care</h3>
-                    <p>Clinical excellence must be the priority for any health care service provider.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- service_area_end -->
+            </form>
 
-<div class="container">
-    <div class="row mt-5 mb-5 mx-auto">
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title">Login</h4>
-                </div>
-                <form name="f" th:action="@{/login}" method="post">
 
-                    <div class="card-body">
-                        <div th:if="${param.error}" class="alert alert-error">
-                            Invalid username and password.
-                        </div>
-                        <div th:if="${param.logout}" class="alert alert-success">
-                            You have been logged out.
-                        </div>
-                        <div class="form-group">
-                            <label for="username" class="form-check-label">Username</label>
-                            <input type="text" id="username" name="username" class="form-control"/>
-                        </div>
-                        <div class="form-group">
-                            <label for="password" class="form-check-label">Password</label>
-                            <input type="password" id="password" name="password" class="form-control"/>
-                        </div>
-                        <div class="card-footer">
-                            <button type="submit" class="btn btn-success">Log in</button>
-                        </div>
-                    </div>
-                </form>
-
-                <p class="mt-5 login-form__footer">New User ? Register<a href="/./users/create" class="text-primary"> Here</a> Now </p>
+            <div class="login100-more" style="background-image: url('img/bg-01.jpg');">
 
             </div>
         </div>
@@ -137,56 +65,6 @@
 
 <!-- footer start -->
 <footer class="footer">
-    <div class="footer_top">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-4 col-md-6 col-lg-4">
-                    <div class="footer_widget">
-                        <div class="footer_logo">
-                            <a href="#">
-                                <img th:src="@{/img/freeLogo.jpg}" alt="">
-                            </a>
-                        </div>
-                        <p>
-                            Our Social Media Links
-                        </p>
-                        <div class="socail_links">
-                            <ul>
-                                <li>
-                                    <a th:href="@{/#}">
-                                        <i class="ti-facebook"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a th:href="@{/#}">
-                                        <i class="ti-twitter-alt"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a th:href="@{/#}">
-                                        <i class="fa fa-instagram"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6 col-lg-3">
-                    <div class="footer_widget">
-                        <h3 class="footer_title">
-                            Address
-                        </h3>
-                        <p>
-                            200, D-block, Bauchi <br>
-                            +2349030596462 <br>
-                            atbu@gmail.com
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="copy-right_text">
         <div class="container">
             <div class="footer_border"></div>
@@ -202,32 +80,21 @@
 </footer>
 <!-- footer end  -->
 
+
+
+
 <!-- JS here -->
-<script th:src="@{/js/vendor/modernizr-3.5.0.min.js}"></script>
-<script th:src="@{/js/vendor/jquery-1.12.4.min.js}"></script>
+
 <script th:src="@{/js/popper.min.js}"></script>
 <script th:src="@{/js/bootstrap.min.js}"></script>
-<script th:src="@{/js/owl.carousel.min.js}"></script>
-<script th:src="@{/js/isotope.pkgd.min.js}"></script>
 <script th:src="@{/js/ajax-form.js}"></script>
-<script th:src="@{/js/waypoints.min.js}"></script>
-<script th:src="@{/js/jquery.counterup.min.js}"></script>
-<script th:src="@{/js/imagesloaded.pkgd.min.js}"></script>
-<script th:src="@{/js/scrollIt.js}"></script>
-<script th:src="@{/js/jquery.scrollUp.min.js}"></script>
-<script th:src="@{/js/wow.min.js}"></script>
-<script th:src="@{/js/nice-select.min.js}"></script>
-<script th:src="@{/js/jquery.slicknav.min.js}"></script>
-<script th:src="@{/js/jquery.magnific-popup.min.js}"></script>
-<script th:src="@{/js/plugins.js}"></script>
-<script th:src="@{/js/gijgo.min.js}"></script>
-<!--contact js-->
-<script th:src="@{/js/contact.js}"></script>
-<script th:src="@{/js/jquery.ajaxchimp.min.js}"></script>
-<script th:src="@{/js/jquery.form.js}"></script>
-<script th:src="@{/js/jquery.validate.min.js}"></script>
-<script th:src="@{/js/mail-script.js}"></script>
-
+<script th:src="@{/js/jquery-3.2.1.min.js}"></script>
+<script th:src="@{/js/animsition.min.js}"></script>
+<script th:src="@{/js/select2.min.js}"></script>
+<script th:src="@{/js/moment.min.js}"></script>
+<script th:src="@{/js/daterangepicker.js}"></script>
+<script th:src="@{/js/countdowntime.js}"></script>
 <script th:src="@{/js/main.js}"></script>
+
 </body>
 </html>
