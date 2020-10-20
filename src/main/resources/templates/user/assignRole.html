@@ -27,8 +27,7 @@
     <!-- <link rel="stylesheet" th:href="@{/css/responsive.css}"> -->
 </head>
 
-<body>
-
+<body class="margin-tp">
 <!-- header-start -->
 <header>
     <div class="header-area ">
@@ -48,6 +47,11 @@
                             </a>
                         </div>
                     </div>
+                    <div class="col-xl-6 col-md-6">
+                        <div class="short_contact_list">
+                            <h4> <a th:href="@{/logout}" class="text-primary">Logout</a></h4>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -65,7 +69,19 @@
                         <div class="main-menu  d-none d-lg-block">
                             <nav>
                                 <ul id="navigation">
-                                    <li> Registration Form </a></li>
+                                    <li><a class="active" th:href="@{/index}">Home</a></li>
+                                    <li><a th:href="@{/#}">Roles <i class="ti-angle-down"></i></a>
+                                        <ul class="submenu">
+                                            <li><a th:href="@{/roles/create}">Create New Role</a></li>
+                                            <li><a th:href="@{/roles/list}">List Existing Roles</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a th:href="@{/#}">Users <i class="ti-angle-down"></i></a>
+                                        <ul class="submenu">
+                                            <li><a th:href="@{/users/create}">Create New User</a></li>
+                                            <li><a th:href="@{/users/list}">List Of Users</a></li>
+                                        </ul>
+                                    </li>
                                 </ul>
                             </nav>
                         </div>
@@ -79,51 +95,27 @@
     </div>
 </header>
 <!-- header-end -->
-<body class="margin-tp">
-<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
-    <div class="col-xl-6 col-lg-7">
-        <div class="main-menu  d-none d-lg-block">
-            <nav>
-                <ul id="navigation">
-                    <li><a class="active" th:href="@{/index}">home</a></li>
-                    <li><a th:href="@{/#}">Roles <i class="ti-angle-down"></i></a>
-                        <ul class="submenu">
-                            <li><a th:href="@{/roles/create}">Create New Role</a></li>
-                            <li><a th:href="@{/users/list}">Assign Role</a></li>
-                            <li><a th:href="@{/roles/list}">List Existing Roles</a></li>
-                        </ul>
-                    </li>
-                    <li><a th:href="@{/#}">Users <i class="ti-angle-down"></i></a>
-                        <ul class="submenu">
-                            <li><a th:href="@{/users/create}">Create New User</a></li>
-                            <li><a th:href="@{/users/list}">List Of Users</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </div>
-    <div class="p-2 createForm add-role">
-        <form method="post" th:object="${user}" th:action="${'/users/assignNewRole'}">
-            <input type="hidden" name="id" th:field="*{id}" />
-            <div class="form-group">
-                <label>Last Name</label>
-                <input class="form-control" th:field="*{lastName}" name="name" readonly>
-            </div>
 
-            <div class="form-group" >
-                <label>Role</label>
-                <select class="form-control" id="name" name="name">
-                    <option value="">--Select Role--</option>
-                    <option th:each="r : ${roles}" th:value="${r.getName()}" th:text="${r.getName()}"></option>
-                </select>
-            </div>
-            <div>
-                <input type="submit" name="addRole" id="addRole" value="Assign Role"/>
-            </div>
-        </form>
-    </div>
-</main>
+<div class="p-2 createForm add-role">
+    <form method="post" th:object="${user}" th:action="${'/users/assignNewRole'}">
+        <input type="hidden" name="id" th:field="*{id}" />
+        <div class="form-group">
+            <label>Last Name</label>
+            <input class="form-control" th:field="*{lastName}" name="name" readonly>
+        </div>
+
+        <div class="form-group" >
+            <label>Role</label>
+            <select class="form-control" id="name" name="name">
+                <option value="">--Select Role--</option>
+                <option th:each="r : ${roles}" th:value="${r.getName()}" th:text="${r.getName()}"></option>
+            </select>
+        </div>
+        <div>
+            <input type="submit" name="addRole" id="addRole" value="Assign Role"/>
+        </div>
+    </form>
+</div>
 
 <footer class="footer">
     <div class="footer_top">
