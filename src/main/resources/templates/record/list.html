@@ -130,8 +130,8 @@
         <td th:text="${row.getModifiedBy()}"></td>
         <td th:text="${row.getModifiedDate()}"></td>
 
-        <td><a th:href="@{/records/edit/{id}(id=${row.getId()})}"><button class="btn-warning" name="button">Edit Patient's Record</button></a></td>
-        <td><a th:href="@{/records/delete/{id}(id=${row.getId()})}"><button class="btn-danger" name="button">Delete Patient's Record</button></a></td>
+        <td><a th:href="@{/records/edit/{id}(id=${row.getId()})}"><button class="btn-warning" name="button">Edit Record</button></a></td>
+        <td><a th:href="@{/records/delete/{id}(id=${row.getId()})}"><button class="btn-danger" name="button"> Delete </button></a></td>
     </tr>
 </table>
 <!-- footer start -->

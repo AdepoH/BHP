@@ -25,5 +25,12 @@ public class IndexController {
         return "/reception";
     }
 
+    @GetMapping("/patients")
+    public String test(Model model){
+
+        return "/test";
+    }
+
+
 
 }

@@ -29,6 +29,18 @@ public class Patient {
     public Patient() {
     }
 
+    public Patient(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public Patient(String lastName, String firstName, String nextOfKin, String phoneNumber, char gender) {
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.nextOfKin = nextOfKin;
+        this.phoneNumber = phoneNumber;
+        this.gender = gender;
+    }
+
     public Patient(String lastName, String firstName, java.sql.Date dob, String nextOfKin, String phoneNumber, char gender, int age, String bloodGroup, String department, String doctorsName, String complains, java.sql.Date appointmentDate, String createdBy, java.sql.Date createdDate, String modifiedBy, java.sql.Date modifiedDate) {
         this.lastName = lastName;
         this.firstName = firstName;
