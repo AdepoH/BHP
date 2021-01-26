@@ -1,72 +1,113 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="https://www.thymeleaf.org/thymleaf-extras-springsecurity5">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>ATBU login</title>
-    <meta name="author" content="Adepo Abdul-Hafeez">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
-    <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
-    <link rel="stylesheet" th:href="@{/css/icon-font.min.css}">
-    <link rel="stylesheet" th:href="@{/css/nice-select.css}">
-    <link rel="stylesheet" th:href="@{/css/flaticon.css}">
-    <link rel="stylesheet" th:href="@{/css/animate.css}">
-    <link rel="stylesheet" th:href="@{/css/animsition.min.css}">
-    <link rel="stylesheet" th:href="@{/css/hamburgers.min.css}">
-    <link rel="stylesheet" th:href="@{/css/animsition.min.css}">
-    <link rel="stylesheet" th:href="@{/css/select2.min.css}">
-    <link rel="stylesheet" th:href="@{/css/daterangepicker.css}">
-    <link rel="stylesheet" th:href="@{/css/util.css}">
-    <link rel="stylesheet" th:href="@{/css/main.css}">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="author" content="Adepo Abdul-Hafeez">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>ATBU Login</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: rgb(175, 236, 255);
+        }
+
+        .change {
+            text-align: center;
+        }
+
+        .boy {
+            background-color: rgb(59, 162, 231);
+        }
+
+        .row {
+            background: rgb(45, 206, 247);
+            border-radius: 30px;
+            box-shadow: 12px 12px 22px grey;
+        }
+
+        img {
+            border-top-left-radius: 30px;
+            border-bottom-left-radius: 30px;
+        }
+
+        .btn1 {
+            border: none;
+            outline: none;
+            height: 50px;
+            width: 100%;
+            background-color: rgb(22, 113, 233);
+            color: rgb(165, 206, 245);
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .btn1:hover {
+            background: rgb(21, 162, 197);
+            border: 1px solid;
+            color: rgb(181, 215, 247);
+        }
+
+        .footer {
+
+            color: rgba(15, 15, 15, 0);
+        }
+    </style>
 </head>
 
-<body style="background-color: #666666;">
+<body>
+<section class="form my-4 mx-5">
+    <div class="container change">
+        <div class="row no-gutters">
+            <div class="boy col-lg-7 px-5 pt-5 offset-3">
+                <h1 class="change font-weight-bold py-3">ATBU Health Care</h1>
+                <h4 class="change">Sign into your Account</h4>
 
-<div class="limiter">
-    <div class="container-login100">
-        <div class="wrap-login100">
-            <form class="login100-form validate-form" name="f" th:action="@{/login}" method="post">
-					<span class="login100-form-title p-b-43">
-						LOGIN
-					</span>
-
-                <div class="card-body">
+                <form class="login100-form validate-form" name="f" th:action="@{/login}" method="post">
                     <div th:if="${param.error}" class="alert alert-error">
                         Invalid username and password.
                     </div>
                     <div th:if="${param.logout}" class="alert alert-success">
                         You have been logged out.
                     </div>
-                    <div class="form-group">
-                        <label for="username" class="form-check-label">Username</label>
-                        <input type="text" id="username" name="username" class="form-control"/>
+                    <div class="form-row">
+                        <div class="col-lg-7 offset-2">
+                            <label for="username" class="form-check-label">USERNAME</label>
+                            <input type="text" id="username" name="username" class="form-control my-3 p-4">
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="password" class="form-check-label">Password</label>
-                        <input type="password" id="password" name="password" class="form-control"/>
+                    <div class="form-row">
+                        <div class="col-lg-7 offset-2">
+                            <label for="password" class="form-check-label">PASSWORD</label>
+                            <input type="password" id="password" name="password" placeholder="********"
+                                   class="form-control my-3 p-4">
+                        </div>
                     </div>
-                    <div class="card-footer">
-                        <button type="submit" class="btn btn-success">Log in</button>
+                    <div class="form-now">
+                        <div class="col-lg-7 offset-2">
+                            <button type="submit" class="btn1 mt-3 mb-5">LOGIN</button>
+                        </div>
                     </div>
-                </div>
-
-                <div>
-                    <div class="card-footer">
-                        New user ? <a href="/users/create">click here </a> to create an account with us !............
-                    </div>
-                </div>
-
-            </form>
-
-            <div style="background-image: url('/img/bg-01.jpg')">
-
+                    <p>Don't have an account? <a href="/users/create"> Register Here</a></p>
+                </form>
             </div>
         </div>
     </div>
-</div>
+</section>
+
 
 <!-- footer start -->
 <footer class="footer">
@@ -75,8 +116,10 @@
             <div class="footer_border"></div>
             <div class="row">
                 <div class="col-xl-12">
-                    <p class="copy_right text-center">
-                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | ATBU Health Care
+                    <p class="copy_right text-center text-white">
+                        Copyright &copy;
+                        <script>document.write(new Date().getFullYear());</script> All rights reserved | ATBU Health
+                        Care
                     </p>
                 </div>
             </div>
@@ -86,20 +129,15 @@
 <!-- footer end  -->
 
 
-
-
-<!-- JS here -->
-
-<script th:src="@{/js/popper.min.js}"></script>
-<script th:src="@{/js/bootstrap.min.js}"></script>
-<script th:src="@{/js/ajax-form.js}"></script>
-<script th:src="@{/js/jquery-3.2.1.min.js}"></script>
-<script th:src="@{/js/animsition.min.js}"></script>
-<script th:src="@{/js/select2.min.js}"></script>
-<script th:src="@{/js/moment.min.js}"></script>
-<script th:src="@{/js/daterangepicker.js}"></script>
-<script th:src="@{/js/countdowntime.js}"></script>
-<script th:src="@{/js/main.js}"></script>
-
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
